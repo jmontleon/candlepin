@@ -265,6 +265,7 @@ rm -rf %{buildroot}
 # common
 install -d -m 755 %{buildroot}/%{_sysconfdir}/%{name}/certs/
 install -d -m 755 %{buildroot}/%{_sysconfdir}/%{name}/certs/upstream/
+install -d -m 755 %{buildroot}/%{_sysconfdir}/%{name}/certs/amqp/
 install -m 644 conf/candlepin-redhat-ca.crt %{buildroot}%{_sysconfdir}/%{name}/certs/upstream/
 install -d 755 %{buildroot}%{_sysconfdir}/logrotate.d/
 install -m 644 conf/logrotate.conf %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
@@ -345,6 +346,7 @@ fi
 %{_datadir}/%{name}/cpdb
 %{_sysconfdir}/%{name}/certs/
 %{_sysconfdir}/%{name}/certs/upstream
+%{_sysconfdir}/%{name}/certs/amqp
 %ghost %attr(644, root, root) %{_sysconfdir}/%{name}/certs/candlepin-ca.crt
 # Default is to track the rpm version of this cert for manifest signatures.
 # If a deployment is managing their own, they will need to restore from the
